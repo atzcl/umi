@@ -137,14 +137,14 @@ export async function getDefaultBlockList(_, blockConfig = {}, addBlock) {
   let blockArray = [];
   const { defaultGitUrl } = blockConfig;
 
-  spinner.start('🚣 fetch block list');
+  spinner.start('🚣  fetch block list');
 
   // 如果存在 defaultGitUrl 的配置，就从 defaultGitUrl 配置中拿区块列表
   if (defaultGitUrl) {
     const ignoreFile = ['_scripts', 'tests'];
     const { name, owner } = GitUrlParse(defaultGitUrl);
     spinner.succeed();
-    spinner.start(`🔍 find block list form ${chalk.yellow(defaultGitUrl)}`);
+    spinner.start(`🔍  find block list form ${chalk.yellow(defaultGitUrl)}`);
 
     // 一个 github 的 api,可以获得文件树
     const { body } = await got(`https://api.github.com/repos/${owner}/${name}/git/trees/master`);
@@ -238,7 +238,7 @@ export async function gitUpdate(ctx, spinner) {
  * @param {*} spinner
  */
 export async function gitClone(ctx, spinner) {
-  spinner.start(`🔍 Clone git repo from ${ctx.repo}`);
+  spinner.start(`🔍  lone git repo from ${ctx.repo}`);
   try {
     await execa(
       `git`,
