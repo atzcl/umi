@@ -3,6 +3,7 @@ import { fork } from 'child_process';
 import puppeteer from 'puppeteer';
 import http from 'http';
 import { existsSync, readdirSync } from 'fs';
+import { winPath } from 'umi-utils';
 
 interface IServer {
   [key: string]: {
@@ -15,7 +16,7 @@ let port = 12400;
 const servers = {} as IServer;
 let browser: any;
 let page: any;
-const fixtures = join(__dirname, 'fixtures/build');
+const fixtures = join(winPath(__dirname), 'fixtures/build');
 let dirs = readdirSync(fixtures).filter(dir => dir.charAt(0) !== '.');
 const testOnly = dirs.some(dir => /-only/.test(dir));
 if (testOnly) {
