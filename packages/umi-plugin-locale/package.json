@@ -33,6 +33,7 @@
     "lodash.groupby": "4.6.0",
     "moment": "2.x",
     "mustache": "3.0.1",
+    "node-import-ts": "^1.0.1",
     "prop-types": "15.6.2",
     "react-intl": "2.7.2",
     "umi-utils": "1.5.1"
