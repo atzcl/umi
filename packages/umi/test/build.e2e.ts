@@ -48,7 +48,9 @@ afterAll(() => {
   Object.keys(servers).forEach(name => {
     servers[name].server.close();
   });
-  browser.close();
+  if (browser) {
+    browser.close();
+  }
 });
 
 async function build(cwd: string, name: string) {
