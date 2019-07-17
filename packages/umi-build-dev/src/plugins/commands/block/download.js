@@ -71,10 +71,9 @@ export function isGitUrl(url) {
 export function parseGitUrl(url) {
   const args = GitUrlParse(url);
   const { ref, filepath, resource, full_name: fullName } = args;
-  console.log(args.toString('https'));
   return {
-    repo: `${args.toString('https')}`,
-    branch: ref,
+    repo: `${args.toString()}`,
+    branch: ref || 'master',
     path: `/${filepath}`,
     id: `${resource}/${fullName}`, // 唯一标识一个 git 仓库
   };

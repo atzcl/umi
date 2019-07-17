@@ -1,6 +1,7 @@
 
 import { existsSync, unlinkSync } from 'fs';
 import { join } from 'path';
+import {winPath} from 'umi-utils'
 
 const getServerRender = async (url) => {
 
@@ -27,7 +28,8 @@ const getServerRender = async (url) => {
 
 export default async function ({ page, host }) {
 
-  const ssrFile = join(__dirname, 'dist', 'umi.server.js');
+  const ssrFile = join(winPath(__dirname), 'dist', 'umi.server.js');
+
   expect(existsSync(ssrFile)).toBeTruthy();
 
   const { ssrHtml, ssrHtmlElement } = await getServerRender('/');

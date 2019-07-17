@@ -53,7 +53,7 @@ afterAll(() => {
 
 async function build(cwd: string, name: string) {
   return new Promise((resolve, reject) => {
-    const umiPath = join(__dirname, '../bin/umi.js');
+    const umiPath = join(winPath(__dirname), '../bin/umi.js');
     const env = {
       COMPRESS: 'none',
       PROGRESS: 'none',
